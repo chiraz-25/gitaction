@@ -3,28 +3,26 @@ name: CI/CD Workflow
 on:
   push:
     branches:
-      - main  # Le workflow se déclenche lorsqu'il y a un push sur la branche 'main'
+      - main  # Déclenche le workflow sur la branche 'main'
   pull_request:
     branches:
-      - main  # Le workflow se déclenche lorsqu'il y a une pull request sur la branche 'main'
+      - main  # Déclenche aussi le workflow sur les PR vers la branche 'main'
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Utilise une machine virtuelle Ubuntu pour exécuter les actions
+    runs-on: macos-latest  # Utilise une machine virtuelle macOS pour l'exécution
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Cette action permet de récupérer le code du dépôt
+        uses: actions/checkout@v2  # Récupère le code de ton dépôt
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2  # Cette action configure Node.js
+        uses: actions/setup-node@v2  # Installe Node.js
         with:
-          node-version: '14'  # Utilise la version de Node.js que tu préfères (ici la version 14)
+          node-version: '14'  # Indique la version de Node.js (ajuste selon ton besoin)
 
       - name: Install dependencies
-        run: |
-          npm install  # Installe les dépendances du projet définies dans le fichier package.json
+        run: npm install  # Installe les dépendances du projet définies dans package.json
 
       - name: Run tests
-        run: |
-          npm test  # Exécute les tests définis dans ton projet avec la commande 'npm test'
+        run: npm test  # Exécute les tests définis dans ton projet (par exemple, avec Jest)
