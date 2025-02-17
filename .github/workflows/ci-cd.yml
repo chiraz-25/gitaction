@@ -13,15 +13,15 @@ jobs:
     runs-on: macos-latest  # Utilise une machine virtuelle macOS pour l'exécution
 
     steps:
-      - name: Checkout code
+      - name: Checkout code v1
         uses: actions/checkout@v2  # Récupère le code de ton dépôt
 
-      - name: Set up Node.js
+      - name: Set up Node.js V1
         uses: actions/setup-node@v3  # Installe Node.js
         with:
           node-version: '22.13'  # Indique la version de Node.js (ajuste selon ton besoin)
 
-      - name: Install dependencies
+      - name: Install dependencies V1 ANOTHER BRANCH
         run: npm install  # Installe les dépendances du projet définies dans package.json
 
       - name: Run tests
